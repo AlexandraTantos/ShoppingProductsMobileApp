@@ -1,4 +1,4 @@
-import { Modal, TouchableOpacity, Text, View, StyleSheet } from "react-native";
+import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../constants";
 import { Review } from "../screens/ProductsScreen";
 

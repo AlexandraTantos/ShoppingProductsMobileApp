@@ -1,7 +1,5 @@
-import { ScrollView, Image, TouchableOpacity, StyleSheet } from "react-native";
-import Icon from "../components/Icon";
 import { useNavigation } from "@react-navigation/native";
-import { COLORS } from "../constants";
+import { Image, ScrollView, StyleSheet } from "react-native";
 import BackButton from "./BackButton";
 
 type Props = {

@@ -1,6 +1,6 @@
-import { StyleSheet, View, Text, Image } from "react-native";
-import { COLORS } from "../constants";
 import { AxiosError } from "axios";
+import { Image, StyleSheet, Text, View } from "react-native";
+import { COLORS } from "../constants";
 
 type ErrorProps = {
   error?: AxiosError | null;

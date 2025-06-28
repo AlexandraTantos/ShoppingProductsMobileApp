@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../screens/HomeScreen";
 import BasketIcon from "../components/BasketIcon";
-import ProductsScreen, { Product } from "../screens/ProductsScreen";
 import HomeIcon from "../components/HomeIcon";
-import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 import BasketScreen from "../screens/BasketScreen";
+import HomeScreen from "../screens/HomeScreen";
+import ProductDetailsScreen from "../screens/ProductDetailsScreen";
+import ProductsScreen, { Product } from "../screens/ProductsScreen";
 
 export type TabStackParamList = {
   Home: NavigatorScreenParams<HomeStackParamList>;

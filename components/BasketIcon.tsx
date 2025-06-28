@@ -1,5 +1,5 @@
-import Icon from "./Icon";
 import { StyleSheet } from "react-native";
+import Icon from "./Icon";
 
 const BasketIcon = () => (
   <Icon source={require("../assets/icon_shopping.png")} style={styles.icon} />

@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
-import { COLORS } from "../constants";
-import Icon from "../components/Icon";
-import Counter from "../components/Counter";
+import { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AddToCartButton from "../components/AddToCartButton";
+import Counter from "../components/Counter";
+import Icon from "../components/Icon";
+import { COLORS } from "../constants";
 import { Product } from "../screens/ProductsScreen";
 import { getDiscountedPrice } from "../utils/priceUtils";
-import { useState } from "react";
 import ReviewsModal from "./ReviewsModal";
 
 type Props = {

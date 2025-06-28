@@ -1,14 +1,14 @@
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
-import useFetch from "../hooks/useFetch";
-import { COLORS, STYLES } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { COLORS, STYLES } from "../constants";
+import useFetch from "../hooks/useFetch";
 import { HomeStackParamList } from "../navigation/TabNavigator";
 
 type obj = { item: string };

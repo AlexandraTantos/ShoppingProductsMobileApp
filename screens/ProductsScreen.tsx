@@ -1,20 +1,20 @@
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
-import { HomeStackParamList } from "../navigation/TabNavigator";
-import useFetch from "../hooks/useFetch";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import Loading from "../components/Loading";
-import Error from "../components/Error";
-import { COLORS } from "../constants";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { getDiscountedPrice } from "../utils/priceUtils";
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import BackButton from "../components/BackButton";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
+import { COLORS } from "../constants";
+import useFetch from "../hooks/useFetch";
+import { HomeStackParamList } from "../navigation/TabNavigator";
+import { getDiscountedPrice } from "../utils/priceUtils";
 
 export type Review = {
   rating: number;

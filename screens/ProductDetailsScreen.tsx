@@ -1,21 +1,7 @@
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { RouteProp, useRoute } from "@react-navigation/native";
+import { ScrollView } from "react-native";
 import { HomeStackParamList } from "../navigation/TabNavigator";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Button,
-  TouchableOpacity,
-  Alert,
-  SafeAreaView,
-} from "react-native";
-import { COLORS } from "../constants";
-import Icon from "../components/Icon";
-import { useState } from "react";
-import Counter from "../components/Counter";
-import AddToCartButton from "../components/AddToCartButton";
+
 import ProductImagesCarousel from "../components/ProductImagesCarousel";
 import ProductInfo from "../components/ProductInfo";
 

@@ -1,8 +1,8 @@
-import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
-import Icon from "./Icon";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { COLORS } from "../constants";
+import Icon from "./Icon";
 
 type Props = {
   onPress?: () => void;
