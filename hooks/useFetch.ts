@@ -19,11 +19,9 @@ const useFetch = <T>(request: Request) => {
     try {
       setIsLoading(true);
       const response = await axios.request(options);
-      console.log("api data", response.data);
 
       setData(response.data);
     } catch (error) {
-      console.log("api error", error);
       setError(error as AxiosError);
     } finally {
       setIsLoading(false);

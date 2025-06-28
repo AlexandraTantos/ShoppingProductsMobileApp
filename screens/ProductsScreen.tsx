@@ -1,5 +1,4 @@
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
-
 import { HomeStackParamList } from "../navigation/TabNavigator";
 import useFetch from "../hooks/useFetch";
 import {
@@ -13,8 +12,9 @@ import {
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { COLORS } from "../constants";
-import { AxiosError } from "axios";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { getDiscountedPrice } from "../utils/priceUtils";
+import BackButton from "../components/BackButton";
 
 export type Product = {
   id: number;
@@ -47,6 +47,11 @@ const ProductsScreen = () => {
     useNavigation<NativeStackNavigationProp<HomeStackParamList>>();
 
   const renderItem = ({ item }: { item: Product }) => {
+    const discountedPrice = getDiscountedPrice(
+      item.price,
+      item.discountPercentage
+    );
+
     return (
       <TouchableOpacity
         style={styles.container}
@@ -62,18 +67,22 @@ const ProductsScreen = () => {
           {item.brand}
         </Text>
         <Text style={styles.productPrice}>${item.price}</Text>
+        <Text style={styles.discountedPrice}>
+          ${discountedPrice.toFixed(2)}
+        </Text>
       </TouchableOpacity>
     );
   };
 
   return (
     <View style={{ flex: 1 }}>
+      <BackButton />
       {isLoading ? (
         <Loading />
       ) : (
         <>
           {data && (
-            <View style={{ marginHorizontal: 20, flex: 1 }}>
+            <View style={{ marginHorizontal: 20, flex: 1, marginTop: 70 }}>
               <Text style={styles.title}>{route.params.query}</Text>
               <FlatList
                 data={data.products}
@@ -114,8 +123,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   productPrice: {
-    fontWeight: "bold",
+    fontSize: 12,
     textAlign: "center",
+    textDecorationLine: "line-through",
+    color: COLORS.graySecondary,
   },
   container: {
     justifyContent: "space-between",
@@ -129,6 +140,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
     alignContent: "center",
+  },
+  discountedPrice: {
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 14,
   },
 });
 export default ProductsScreen;
