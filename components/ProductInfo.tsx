@@ -1,11 +1,12 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { COLORS } from "../constants";
 import Icon from "../components/Icon";
 import Counter from "../components/Counter";
 import AddToCartButton from "../components/AddToCartButton";
 import { Product } from "../screens/ProductsScreen";
 import { getDiscountedPrice } from "../utils/priceUtils";
-import BackButton from "./BackButton";
+import { useState } from "react";
+import ReviewsModal from "./ReviewsModal";
 
 type Props = {
   product: Product;
@@ -16,6 +17,7 @@ const ProductInfo = ({ product }: Props) => {
     product.price,
     product.discountPercentage
   );
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <View style={styles.pageContainer}>
@@ -32,7 +34,14 @@ const ProductInfo = ({ product }: Props) => {
           source={require("../assets/icon_rating.png")}
           style={styles.ratingIcon}
         />
-        <Text>{product.rating} (Reviews Score)</Text>
+        <TouchableOpacity onPress={() => setModalOpen(true)}>
+          <Text>{product.rating} (Reviews Score)</Text>
+        </TouchableOpacity>
+        <ReviewsModal
+          visible={modalOpen}
+          onClose={() => setModalOpen(false)}
+          reviews={product.reviews}
+        />
       </View>
       <Text style={styles.subtitle}>Brand</Text>
       <Text style={styles.category}>{product.brand}</Text>

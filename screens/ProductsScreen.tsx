@@ -16,6 +16,13 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { getDiscountedPrice } from "../utils/priceUtils";
 import BackButton from "../components/BackButton";
 
+export type Review = {
+  rating: number;
+  comment: string;
+  date: string;
+  reviewerName: string;
+  reviewerEmail: string;
+};
 export type Product = {
   id: number;
   brand: string;
@@ -24,6 +31,7 @@ export type Product = {
   discountPercentage: number;
   quantity?: number;
   images: string[];
+  reviews: Review[];
   rating: number;
   thumbnail: string;
   stock: string;
