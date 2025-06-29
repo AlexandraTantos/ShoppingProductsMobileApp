@@ -17,6 +17,7 @@ const BasketFooter = ({ totalQuantity, totalPrice, onCheckout }: Props) => {
       <ActionButton
         text="Proceed to checkout"
         icon={require("../assets/icon_right.png")}
+        onPress={onCheckout}
       />
     </View>
   );

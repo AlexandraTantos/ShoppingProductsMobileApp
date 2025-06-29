@@ -4,9 +4,15 @@ import BasketCard from "../components/BasketCard";
 import BasketFooter from "../components/BasketFooter";
 import Title from "../components/Title";
 import { useBasket } from "../hooks/useBasket";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { BasketStackParamList } from "../navigation/TabNavigator";
 
 const BasketScreen = () => {
   const { basket, updateQuantity, removeItem } = useBasket();
+
+  const navigation =
+    useNavigation<NativeStackNavigationProp<BasketStackParamList>>();
 
   const handleQuantityChange = (id: number, newQty: number) => {
     updateQuantity(id, newQty);
@@ -20,12 +26,15 @@ const BasketScreen = () => {
     (total, item) => total + item.quantity,
     0
   );
+
   const totalPrice = basket
     .reduce((total, item) => total + item.discountedPrice * item.quantity, 0)
     .toFixed(2);
+
   const handleCheckout = () => {
-    console.log("Proceeding to checkout");
+    navigation.navigate("ContactScreen");
   };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>

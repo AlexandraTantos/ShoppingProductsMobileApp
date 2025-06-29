@@ -1,6 +1,7 @@
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../constants";
 import { Review } from "../screens/ProductsScreen";
+import CloseModalButton from "./CloseModalButton";
 
 type Props = {
   visible: boolean;
@@ -30,9 +31,7 @@ const ReviewsModal = ({ visible, onClose, reviews }: Props) => {
               </View>
             ))
           )}
-          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-            <Text style={styles.closeButtonText}>Close</Text>
-          </TouchableOpacity>
+          <CloseModalButton onPress={onClose} text="Close" />
         </View>
       </View>
     </Modal>
