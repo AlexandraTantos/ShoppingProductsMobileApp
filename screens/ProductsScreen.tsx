@@ -15,6 +15,7 @@ import { COLORS } from "../constants";
 import useFetch from "../hooks/useFetch";
 import { HomeStackParamList } from "../navigation/TabNavigator";
 import { getDiscountedPrice } from "../utils/priceUtils";
+import Title from "../components/Title";
 
 export type Review = {
   rating: number;
@@ -91,7 +92,7 @@ const ProductsScreen = () => {
         <>
           {data && (
             <View style={{ marginHorizontal: 20, flex: 1, marginTop: 70 }}>
-              <Text style={styles.title}>{route.params.query}</Text>
+              <Title text={route.params.query} />
               <FlatList
                 data={data.products}
                 renderItem={renderItem}
@@ -111,14 +112,6 @@ const ProductsScreen = () => {
 const styles = StyleSheet.create({
   flatListContent: {
     gap: 10,
-  },
-
-  title: {
-    color: COLORS.black,
-    textTransform: "capitalize",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginVertical: 20,
   },
   productTitle: {
     fontSize: 14,

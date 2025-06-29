@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import { Image, ScrollView, StyleSheet } from "react-native";
 import BackButton from "./BackButton";
 
@@ -7,8 +6,6 @@ type Props = {
 };
 
 const ProductImagesCarousel = ({ images }: Props) => {
-  const navigation = useNavigation();
-
   return (
     <>
       <BackButton />

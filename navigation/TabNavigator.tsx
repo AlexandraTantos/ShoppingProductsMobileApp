@@ -18,7 +18,16 @@ const Stack = createNativeStackNavigator();
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: true }}>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          height: 50,
+          paddingBottom: 5,
+          paddingTop: 5,
+        },
+      }}
+    >
       <Tab.Screen
         name="Home"
         options={{ tabBarIcon: HomeIcon }}

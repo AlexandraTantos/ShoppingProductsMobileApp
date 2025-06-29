@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AddToCartButton from "../components/AddToCartButton";
 import Counter from "../components/Counter";
 import Icon from "../components/Icon";
 import { COLORS } from "../constants";
+import { useBasket } from "../hooks/useBasket";
 import { Product } from "../screens/ProductsScreen";
 import { getDiscountedPrice } from "../utils/priceUtils";
+import ActionButton from "./ActionButton";
 import ReviewsModal from "./ReviewsModal";
 
 type Props = {
@@ -18,12 +19,31 @@ const ProductInfo = ({ product }: Props) => {
     product.discountPercentage
   );
   const [modalOpen, setModalOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const { addToBasket } = useBasket();
 
+  const handleAddToBasket = () => {
+    const item = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      discountedPrice: discountedPrice,
+      quantity: quantity,
+      brand: product.brand,
+      image: product.thumbnail,
+      stock: Number(product.stock),
+    };
+    addToBasket(item);
+  };
   return (
     <View style={styles.pageContainer}>
       <View style={styles.description}>
         <Text style={styles.title}>{product.title}</Text>
-        <Counter stock={Number(product.stock)} />
+        <Counter
+          stock={Number(product.stock)}
+          value={quantity}
+          onChange={setQuantity}
+        />
       </View>
       <View style={styles.description}>
         <Text style={styles.category}>{product.category}</Text>
@@ -54,7 +74,12 @@ const ProductInfo = ({ product }: Props) => {
           ${discountedPrice.toFixed(2)}
         </Text>
       </View>
-      <AddToCartButton />
+      <ActionButton
+        text="Add to cart"
+        icon={require("../assets/icon_shopping.png")}
+        onPress={handleAddToBasket}
+        iconPosition="left"
+      />
     </View>
   );
 };

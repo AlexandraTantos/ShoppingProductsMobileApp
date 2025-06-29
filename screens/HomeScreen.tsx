@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { COLORS, STYLES } from "../constants";
+import Title from "../components/Title";
+import { COLORS } from "../constants";
 import useFetch from "../hooks/useFetch";
 import { HomeStackParamList } from "../navigation/TabNavigator";
 
@@ -38,7 +39,7 @@ const HomeScreen = () => {
 
   return (
     <View style={{ flex: 1, marginHorizontal: 20 }}>
-      <Text style={styles.title}>Categories</Text>
+      <Title text={"Categories"} />
       {data && (
         <FlatList
           data={data}
@@ -73,18 +74,12 @@ const styles = StyleSheet.create({
     marginTop: 0,
     alignItems: "center",
   },
-  title: {
-    ...STYLES.textPrimary,
-    marginVertical: 10,
-  },
-
   dot: {
     height: 30,
     backgroundColor: COLORS.white,
     borderRadius: 100,
     width: 30,
   },
-
   text: {
     color: COLORS.white,
     textTransform: "capitalize",

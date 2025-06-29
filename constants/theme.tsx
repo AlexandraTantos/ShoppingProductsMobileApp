@@ -29,6 +29,7 @@ export const STYLES = {
     fontWeight: "800" as FontWeight,
     textTransform: "capitalize" as textTransform,
     color: COLORS.black,
+    marginVertical: 10,
   },
   textSecondary: {
     color: COLORS.graySecondary,

@@ -1,15 +1,13 @@
-import { useState } from "react";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../constants";
 
 type CounterProps = {
   stock: number;
+  value: number;
   onChange?: (value: number) => void;
 };
 
-const Counter = ({ stock, onChange }: CounterProps) => {
-  const [quantity, setQuantity] = useState(1);
-
+const Counter = ({ stock, value, onChange }: CounterProps) => {
   const updateQuantity = (newQuantity: number) => {
     if (newQuantity < 1) {
       Alert.alert("Invalid quantity");
@@ -19,25 +17,18 @@ const Counter = ({ stock, onChange }: CounterProps) => {
       Alert.alert("Not enough stock");
       return;
     }
-    setQuantity(newQuantity);
     onChange?.(newQuantity);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => updateQuantity(quantity - 1)}
-        disabled={quantity === 1}
-      >
+      <TouchableOpacity onPress={() => updateQuantity(value - 1)}>
         <Text style={styles.quantityStyle}>-</Text>
       </TouchableOpacity>
 
-      <Text style={styles.quantityStyle}>{quantity}</Text>
+      <Text style={styles.quantityStyle}>{value}</Text>
 
-      <TouchableOpacity
-        onPress={() => updateQuantity(quantity + 1)}
-        disabled={quantity === stock}
-      >
+      <TouchableOpacity onPress={() => updateQuantity(value + 1)}>
         <Text style={styles.quantityStyle}>+</Text>
       </TouchableOpacity>
     </View>
@@ -49,8 +40,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: COLORS.grayLight,
     borderRadius: 20,
-    width: 100,
-    height: 40,
+    width: 90,
+    height: 35,
     justifyContent: "space-evenly",
     alignItems: "center",
   },
