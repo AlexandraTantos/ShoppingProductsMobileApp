@@ -11,7 +11,7 @@ type Props = {
 
 const ReviewsModal = ({ visible, onClose, reviews }: Props) => {
   return (
-    <Modal visible={visible} transparent>
+    <Modal visible={visible} transparent animationType="fade">
       <View style={styles.modalOverlay}>
         <View style={styles.modalContainer}>
           <Text style={styles.modalTitle}>Reviews</Text>

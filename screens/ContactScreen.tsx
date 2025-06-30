@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { useState } from "react";
 import {
   Keyboard,
@@ -17,6 +17,8 @@ import Title from "../components/Title";
 import UserInput from "../components/UserInput";
 import { COLORS } from "../constants";
 import { validateUser } from "../utils/inputValidation";
+import { BasketStackParamList } from "../navigation/TabNavigator";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 export type User = {
   name: string;
@@ -27,7 +29,8 @@ export type User = {
 };
 
 const ContactScreen = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<BasketStackParamList>>();
 
   const [user, setUser] = useState<User>({
     name: "",
@@ -39,10 +42,12 @@ const ContactScreen = () => {
 
   const handleConfirm = () => {
     const error = validateUser(user);
+
     if (error) {
       alert(error);
       return;
     }
+    navigation.navigate("CheckoutScreen", { user });
   };
 
   return (

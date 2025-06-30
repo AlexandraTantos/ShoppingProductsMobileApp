@@ -25,7 +25,7 @@ export const FONTS = {
 
 export const STYLES = {
   textPrimary: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "800" as FontWeight,
     textTransform: "capitalize" as textTransform,
     color: COLORS.black,

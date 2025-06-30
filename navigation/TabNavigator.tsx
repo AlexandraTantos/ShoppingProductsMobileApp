@@ -7,7 +7,8 @@ import BasketScreen from "../screens/BasketScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 import ProductsScreen, { Product } from "../screens/ProductsScreen";
-import ContactScreen from "../screens/ContactScreen";
+import ContactScreen, { User } from "../screens/ContactScreen";
+import CheckoutScreen from "../screens/CheckoutScreen";
 
 export type TabStackParamList = {
   Home: NavigatorScreenParams<HomeStackParamList>;
@@ -53,6 +54,7 @@ export type HomeStackParamList = {
 export type BasketStackParamList = {
   BasketScreen: undefined;
   ContactScreen: undefined;
+  CheckoutScreen: { user: User };
 };
 const HomeStack = () => {
   return (
@@ -71,6 +73,7 @@ const BasketStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="BasketScreen" component={BasketScreen} />
       <Stack.Screen name="ContactScreen" component={ContactScreen} />
+      <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
     </Stack.Navigator>
   );
 };

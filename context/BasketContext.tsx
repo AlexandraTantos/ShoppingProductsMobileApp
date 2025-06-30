@@ -24,16 +24,17 @@ export const BasketProvider = ({ children }: { children: ReactNode }) => {
   const [basket, setBasket] = useState<BasketItem[]>([]);
 
   const addToBasket = (newItem: BasketItem) => {
-    setBasket((prev) => {
-      const existing = prev.find((item) => item.id === newItem.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === newItem.id
-            ? { ...item, quantity: item.quantity + newItem.quantity }
-            : item
-        );
+    setBasket((prevBasket) => {
+      const updatedBasket = [...prevBasket];
+      const existingItem = updatedBasket.find((item) => item.id === newItem.id);
+
+      if (existingItem) {
+        existingItem.quantity += newItem.quantity;
+      } else {
+        updatedBasket.push({ ...newItem });
       }
-      return [...prev, newItem];
+
+      return updatedBasket;
     });
   };
 

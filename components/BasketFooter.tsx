@@ -3,11 +3,17 @@ import ActionButton from "./ActionButton";
 import { COLORS } from "../constants";
 
 type Props = {
-  totalQuantity: number;
+  totalQuantity?: number;
   totalPrice: string;
   onCheckout: () => void;
+  buttonText: string;
 };
-const BasketFooter = ({ totalQuantity, totalPrice, onCheckout }: Props) => {
+const BasketFooter = ({
+  totalQuantity,
+  totalPrice,
+  onCheckout,
+  buttonText,
+}: Props) => {
   return (
     <View style={styles.footer}>
       <View style={styles.footerText}>
@@ -15,7 +21,7 @@ const BasketFooter = ({ totalQuantity, totalPrice, onCheckout }: Props) => {
         <Text style={styles.footerTextPrice}>Total: ${totalPrice}</Text>
       </View>
       <ActionButton
-        text="Proceed to checkout"
+        text={buttonText}
         icon={require("../assets/icon_right.png")}
         onPress={onCheckout}
       />

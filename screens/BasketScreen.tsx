@@ -62,6 +62,7 @@ const BasketScreen = () => {
           totalQuantity={totalQuantity}
           totalPrice={totalPrice}
           onCheckout={handleCheckout}
+          buttonText="Proceed to Checkout"
         />
       )}
     </SafeAreaView>
