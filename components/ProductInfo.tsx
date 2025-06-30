@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: 20,
     padding: 15,
+    height: 480,
   },
   priceRow: {
     flexDirection: "row",
