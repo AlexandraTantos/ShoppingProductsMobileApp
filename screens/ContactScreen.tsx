@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
   },
   image: {
     alignSelf: "center",
-    width: "100%",
-    height: "30%",
+    width: 350,
+    height: 200,
   },
   confirmButton: {
     width: "40%",

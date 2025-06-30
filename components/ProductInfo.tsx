@@ -47,7 +47,8 @@ const ProductInfo = ({ product }: Props) => {
       </View>
       <View style={styles.description}>
         <Text style={styles.category}>{product.category}</Text>
-        <Text>Available {product.availabilityStatus}</Text>
+
+        <Text>{product.availabilityStatus}</Text>
       </View>
       <View style={styles.ratingContainer}>
         <Icon
