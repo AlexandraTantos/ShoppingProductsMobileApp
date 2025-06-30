@@ -66,7 +66,9 @@ const CheckoutScreen = () => {
               <View style={styles.itemContainer} key={item.id || index}>
                 <Image source={{ uri: item.image }} style={styles.image} />
                 <View>
-                  <Text style={styles.bold}>{item.title}</Text>
+                  <Text style={styles.itemTitle} numberOfLines={1}>
+                    {item.title}
+                  </Text>
                   <Text>{item.brand}</Text>
                   <Text style={styles.bold}>
                     ${(item.discountedPrice * item.quantity).toFixed(2)}
@@ -119,6 +121,10 @@ const styles = StyleSheet.create({
     height: 300,
     justifyContent: "center",
     alignItems: "center",
+  },
+  itemTitle: {
+    fontWeight: "bold",
+    width: 220,
   },
   text: {
     marginVertical: 8,
