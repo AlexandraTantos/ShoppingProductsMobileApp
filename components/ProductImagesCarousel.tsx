@@ -25,11 +25,11 @@ const ProductImagesCarousel = ({ images }: Props) => {
 const styles = StyleSheet.create({
   scrollView: {
     padding: 10,
-    height: 250,
+    height: 280,
   },
   image: {
     width: 400,
-    height: 250,
+    height: 280,
     resizeMode: "contain",
     marginRight: 10,
     borderRadius: 10,
